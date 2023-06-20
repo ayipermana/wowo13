@@ -16,45 +16,17 @@
     </style>
 </head>
 <body>
-   <div class=" navbar navbar-expand-lg bg-primary text-white">
-            <div class=" container-fluid">
-            Ayi Permana
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-label="toggle navigation"aria-controls="mynavbar" aria aria-expanded="false">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class=" collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="profil" class="nav-link {{ Request::segment(1)=='profil'?'active':''}}">Profil</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="portofolio" class="nav-link {{ Request::segment(1)=='portofolio'?'active':''}}">Portofolio</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a href="home" class="nav-link {{ Request::segment(1)=='home'?'active':''}}">Home</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a href="logout" class="nav-link {{ Request::segment(1)=='logout'?'active':''}}">Keluar</a>
-
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
 
 <!-- akhir navbar -->
 
 <section id="home">
     <div class="container-fluid pt-5">
         <div class="text-bg-white text-center pt-3">
-          <img src="img/user.png" alt="" width="200" class="img-thumbnail rounded-circle">
-            <h2>ayi permana</h2>
-            <h2 class="fw-bold mt-3"></h2>
+            <img src="img/businessman-character-avatar-isolated_24877-60111.webp" alt="" width="200" class="img-thumbnail rounded-circle">
+            <h2 class="fw-bold mt-3">Ayi Permana</h2>
             <p class="fs-5">Student</p>
         </div>
-     </div>  
+     </div>
   </section>
   <section id="about" class="pt-5">
     <div class="container">
@@ -62,10 +34,10 @@
         <h3 class="fw-bold mb-3">About Me</h3>
         <div class="row justify-content-center">
           <div class="col-md-4">
-            <p>hi nama saya ayi</p>
+            <p>{{ $portofolio->kategori}}</p>
         </div>
             <div class="col-md-4">
-              <p>hai nama saya ayi</p>
+              <p> Diluar sekolah saya mempunyai hobi main motor dan suka bermain mobile legends, main motor membuat saya merasa senang dan sambil menikmati suasana bermain motor, sedangkan bermain mobile legends mmembuat saya dapat mengeluarkan semangat dan adrenaline yang tinggi kedua hobi hobi saya ini dapat membua saya menghilangkan stres </p>
             </div>
           </div>
         </div>
@@ -120,10 +92,35 @@ Laravel adalah framework berbasis bahasa pemrograman PHP yang bisa digunakan unt
               </div>
             </div>
           </div>
+        {{-- </div> --}}
+      </div>
+    </section>
+    <section class="contact">
+      <div class=" container p-5">
+        <h3 class="fw-bold  bg-light text-center mb-3">Contact Me</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+              <form action="" method="post" id="form-contact">
+              <div class="mb-3">
+                <label for="nama_lengkap" class="form-label">Nama Lengkap <span></span></label>
+                <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap " aria-autocomplete="off">
+                
+              </div>
+              <div class="mb-3">
+                <label for="nama_lengkap" class="form-label">Email <span></span></label>
+                 <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" aria-autocomplete="off">
+                
+              </div>
+              <div class="mb-3">
+                <label for="pesan" class="form-label">Pesan</label>
+                <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">kirim</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
-      
     <!-- link ig -->
     <div class="container-fluid">
       <footer class="py-3 my-3 borderd-top">
@@ -136,3 +133,14 @@ Laravel adalah framework berbasis bahasa pemrograman PHP yang bisa digunakan unt
 
   </body>
   </html>
+       
+
+    
+    
+
+
+
+        
+            
+
+            

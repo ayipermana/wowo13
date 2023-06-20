@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+use App\Models\profil;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class profil extends Model
+{
+    use HasFactory;
+    protected $table = "profils";
+    protected $guarded = [];
+    protected $primaryKey ="nis";
+
+}

@@ -3,33 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
-    function register(){
-        return view('register_admin');
-    }
-    function create(request $request){
-        $validate = $this->validate($request,[
-               'name' => 'required|string',
-               'email' => 'required|string|min:10',
-               'password' => 'required_with::confirm_password|min:10|same:confirm_password',
-            ]);
-            $validate['password']=bcrypt($request->password);
-            user::create($validate);
-            return redirect('login/admin');
+    //
+    function auth(request $request){
+        $credentials = $request->only('email','password');
+        if(auth::attempt($credentials)){
+            return redirect()->intended('template');
         }
-        function show(){
-            $data['admin']= user::all();
-            return redirect('admin',$data);
-
+        return redirect()->back();
         }
-        function delete($id){
-            user::where('id',$id)->delete();
-            return redirect('admin');
+        function logout(Request $request){
+            auth::logout();
+            return redirect('login');
         }
-    }
-
-
-
-
+}

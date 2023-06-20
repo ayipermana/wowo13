@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\controllers\AdminController;
-use App\http\controllers\ProdukController;
-use App\http\controllers\BrandaController;
-use App\http\controllers\DetailController;
-
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\PortofolioController;
+use App\Http\Controllers\HomeController;
 
 
 
@@ -20,49 +20,36 @@ use App\http\controllers\DetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('login');
 
-});
 
 // Route::get('/', function () {
-//     return view('welcome');
-
+//     return view('home');
 // });
-Route::get('branda', function () {
-    return view('branda');
+Route::get('/',[HomeController::class,'show']);
 
-});
-Route::get('produk', function () {
-    return view('produk');
+Route::get('login', function () {
+    return view('login');
+})->name('login');
+Route::post('login/auth',[UserController::class,'auth']);
+Route::get('logout',[UserController::class,'logout']);
 
-})->middleware('auth:web');
-// route::get('/branda',function(){
-//     return view('branda');
-// });
+// Route::get('template',[TemplateController::class,'template'])->middleware('auth');
+    Route::get('template', function (){
+        return view('template');
+    });
 
-
-
-Route::get('admin',[AdminController::class,'show']);
-    Route::get('admin/add',[AdminController::class,'add']);
-    Route::post('admin/create',[AdminController::class,'create']);
-    Route::get('admin/hapus/{id}',[AdminController::class,'hapus']);
-    Route::get('admin/edit/{id}',[AdminController::class,'edit']);
-    Route::post('admin/update/{id}',[AdminController::class,'update']);
-    Route::get('admin/cari/',[AdminController::class,'search']);
-
-
-    Route::get('produk',[ProdukController::class,'show']);
-    Route::get('produk/add',[ProdukController::class,'add']);
-    Route::post('produk/create',[ProdukController::class,'create']);
-    Route::get('produk/hapus/{id}',[ProdukController::class,'hapus']);
-    Route::get('produk/edit/{id}',[ProdukController::class,'edit']);
-    Route::post('produk/update/{id}',[ProdukController::class,'update']);
-    Route::get('produk/cari/',[ProdukController::class,'search']);
-
-    Route::get('branda',[BrandaController::class,'show']);
-    Route::get('detail{id}',[DetailController::class,'show']);
-
-
-
-
+    Route::get('profil',[ProfilController::class,'show']);
+    Route::get('profil/add',[ProfilController::class,'add']);
+    Route::post('profil/create',[ProfilController::class,'create']);
+    Route::get('profil/hapus/{id}',[ProfilController::class,'hapus']);
+    Route::get('profil/edit/{id}',[ProfilController::class,'edit']);
+    Route::post('profil/update/{id}',[ProfilController::class,'update']);
+    Route::get('profil/cari/',[ProfilController::class,'search']);
+    
+    Route::get('portofolio',[PortofolioController::class,'show']);
+    Route::get('portofolio/add',[PortofolioController::class,'add']);
+    Route::post('portofolio/create',[PortofolioController::class,'create']);
+    Route::get('portofolio/hapus/{id}',[PortofolioController::class,'hapus']);
+    Route::get('portofolio/edit/{id}',[PortofolioController::class,'edit']);
+    Route::post('portofolio/update/{id}',[PortofolioController::class,'update']);
+    Route::get('portofolio/cari/',[PortofolioController::class,'search']);
